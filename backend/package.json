@@ -1,0 +1,32 @@
+{
+  "name": "docker-demo-backend",
+  "version": "1.0.0",
+  "description": "Simple NodeJS backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon -x node --experimental-modules src/index.mjs",
+    "start:dev": "nodemon --watch . --experimental-modules src src/index.mjs",
+    "seedDb": "node --experimental-modules tools/seedDb.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frogamic/docker-js-demo.git"
+  },
+  "keywords": [
+    "docker",
+    "backend",
+    "server"
+  ],
+  "author": "Dominic Shelton",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/frogamic/docker-js-demo/issues"
+  },
+  "homepage": "https://github.com/frogamic/docker-js-demo#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.18.0",
+    "pg": "^7.11.0",
+    "nodemon": "^1.19.1"
+  }
+}

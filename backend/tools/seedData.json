@@ -1,0 +1,25 @@
+{
+  "containers": [
+    {
+      "image": "nginx:alpine",
+      "name": "frontend",
+      "listen": 80,
+      "public_listen": 80,
+      "network": "app_network"
+    },
+    {
+      "image": "node:alpine",
+      "name": "backend",
+      "listen": 3000,
+      "network": "app_network"
+    },
+    {
+      "image": "postgres:alpine",
+      "name": "db",
+      "listen": 5432,
+      "network": "app_network"
+    }
+  ],
+  "volumes": [{ "name": "db_data" }],
+  "networks": [{ "name": "app_network" }]
+}
