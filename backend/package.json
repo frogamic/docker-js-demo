@@ -4,10 +4,10 @@
   "description": "Simple NodeJS backend",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -x --experimental-modules index.mjs",
-    "start:watch": "nodemon --watch . --experimental-modules index.mjs",
-    "seedDb": "node --experimental-modules seedDb.mjs",
-    "seedDb:watch": "nodemon --watch seedDb.mjs --watch seedData.json --experimental-modules seedDb.mjs",
+    "start": "nodemon -x index.js",
+    "start:watch": "nodemon --watch . index.js",
+    "seedDb": "node seedDb.js",
+    "seedDb:watch": "nodemon --watch seedDb.js --watch seedData.json seedDb.js",
     "dev": "concurrently 'npm run start:watch' 'npm run seedDb:watch'"
   },
   "repository": {

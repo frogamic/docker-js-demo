@@ -1,6 +1,6 @@
-import knex from 'knex';
-import connection from './connection.mjs';
-import seedData from './seedData.json';
+const knex = require('knex');
+const connection = require('./connection.js');
+const seedData = require('./seedData.json');
 
 const client = knex({ client: 'pg', connection });
 

@@ -1,6 +1,6 @@
-import knex from 'knex';
-import express from 'express';
-import connection from './connection.mjs';
+const knex = require('knex');
+const express = require('express');
+const connection = require('./connection.js');
 
 const port = process.env.PORT || '3000';
 
