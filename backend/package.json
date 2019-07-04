@@ -8,11 +8,11 @@
     "start:watch": "nodemon --watch --exec 'npm start'",
     "test": "jest",
     "test:watch": "nodemon --watch . --exec 'npm test'",
-    "migrateDb": "knex migrate:latest",
-    "migrateDb:watch": "nodemon --watch ./migrations/ --exec 'npm run migrateDb'",
-    "seedDb": "node seedDb.js",
-    "seedDb:watch": "nodemon --watch seedDb.js --watch seedData.json --exec 'npm run seedDb'",
-    "dev": "concurrently 'npm run start:watch' 'npm run test:watch' 'npm run migrateDb:watch'"
+    "migrate": "knex migrate:latest",
+    "migrate:watch": "nodemon --watch ./migrations/ --exec 'npm run migrate'",
+    "seed": "knex seed:run",
+    "seed:watch": "nodemon --watch seeds/ --exec 'npm run seed'",
+    "dev": "npm run migrate && concurrently 'npm run start:watch' 'npm run test:watch' 'npm run seed:watch'"
   },
   "repository": {
     "type": "git",

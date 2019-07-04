@@ -7,7 +7,7 @@ const port = process.env.PORT || '3000';
 const client = knex({ client: 'pg', connection });
 const app = express();
 
-['containers', 'volumes', 'networks'].map(table => {
+['services', 'volumes', 'networks'].map(table => {
   // Get endpoint for all items in table
   app.get(`/${table}`, (req, res, next) => {
     console.log(`all ${table} requested`);
