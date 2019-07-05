@@ -3,13 +3,14 @@ const express = require('express');
 const connection = require('./connection.js');
 
 const port = process.env.PORT || '3000';
+const baseRoute = process.env.BASE_ROUTE || '/api';
 
 const client = knex({ client: 'pg', connection });
 const app = express();
 
 ['services', 'volumes', 'networks'].map(table => {
   // Get endpoint for all items in table
-  app.get(`/${table}`, (req, res, next) => {
+  app.get(`${baseRoute}/${table}`, (req, res, next) => {
     console.log(`all ${table} requested`);
     client
       .select(['*'])
@@ -23,7 +24,7 @@ const app = express();
   });
 
   // Get endpoint for specific item in table by ID
-  app.get(`/${table}/:id`, (req, res, next) => {
+  app.get(`${baseRoute}/${table}/:id`, (req, res, next) => {
     console.log(`Item with ID ${req.params.id} from ${table} requested`);
     client
       .select(['*'])

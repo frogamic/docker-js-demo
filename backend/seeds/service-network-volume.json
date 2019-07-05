@@ -2,16 +2,24 @@
   "services": [
     {
       "image": "nginx:alpine",
-      "name": "frontend",
+      "name": "proxy",
       "listen": 80,
       "public_listen": 80,
       "network_id": "app_network"
     },
     {
-      "image": "node:alpine",
+      "image": "node",
+      "name": "frontend",
+      "listen": 80,
+      "network_id": "app_network",
+      "volume_id": "frontend_modules"
+    },
+    {
+      "image": "node",
       "name": "backend",
-      "listen": 3000,
-      "network_id": "app_network"
+      "listen": 80,
+      "network_id": "app_network",
+      "volume_id": "backend_modules"
     },
     {
       "image": "postgres:alpine",
@@ -21,6 +29,10 @@
       "volume_id": "db_data"
     }
   ],
-  "volumes": [{ "name": "db_data" }],
+  "volumes": [
+    { "name": "backend_modules" },
+    { "name": "frontend_modules" },
+    { "name": "db_data" }
+  ],
   "networks": [{ "name": "app_network" }]
 }

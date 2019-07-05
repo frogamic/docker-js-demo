@@ -7,7 +7,7 @@
     "start": "index.js",
     "start:watch": "nodemon --watch --exec 'npm start'",
     "test": "jest",
-    "test:watch": "nodemon --watch . --exec 'npm test'",
+    "test:watch": "npm test -- --watchAll",
     "migrate": "knex migrate:latest",
     "migrate:watch": "nodemon --watch ./migrations/ --exec 'npm run migrate'",
     "seed": "knex seed:run",
